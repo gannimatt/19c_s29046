@@ -1,4 +1,4 @@
-from square_generator import SquareGenerator, RangeError
+from square_generator.square_generator import SquareGenerator, RangeError
 
 # Example usage:
 square_gen = SquareGenerator()

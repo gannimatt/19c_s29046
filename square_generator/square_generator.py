@@ -1,6 +1,5 @@
 import math
 
-
 class RangeError(Exception):
     """Custom exception for handling invalid range."""
 
