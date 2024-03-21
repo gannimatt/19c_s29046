@@ -5,16 +5,19 @@ class CubicGenerator(SquareGenerator):
     def generate_squares(self, start, end):
 
         if end < start:
-            raise RangeError("End of range cannot be less than start.")
+            raise RangeError("End of range cannot be less than start for square generation.")
 
-        cubes = [x ** 3 for x in range(start, end + 1)]
-        return cubes
+        squares = [x ** 2 for x in range(start, end + 1)]
+        return squares
 
 
 # Example usage:
 cubic_gen = CubicGenerator()
-cubes_1_to_5 = cubic_gen.generate_squares(1, 5)
-print("Generated cubes:", cubes_1_to_5)
+try:
+    squares_1_to_5 = cubic_gen.generate_squares(5, 1)  # Attempting to generate squares with end < start
+    print("Generated squares:", squares_1_to_5)
+except RangeError as e:
+    print("Error:", e)
 
 # Example usage:
 square_gen = SquareGenerator()
