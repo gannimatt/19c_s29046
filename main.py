@@ -1,16 +1,27 @@
-# This is a sample Python script.
+from square_generator.square_generator import SquareGenerator, RangeError
+import math
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+class CubicGenerator(SquareGenerator):
+    def generate_squares(self, start, end):
+        if end < start:
+            raise RangeError("End of range cannot be less than start for square generation.")
+        squares = [x ** 2 for x in range(start, end + 1)]
+        return squares
 
+# Example usage:
+cubic_gen = CubicGenerator()
+try:
+    squares_1_to_5 = cubic_gen.generate_squares(5, 1)  # Attempting to generate squares with end < start
+    print("Generated squares:", squares_1_to_5)
+except RangeError as e:
+    print("Error:", e)
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+# Example usage:
+square_gen = CubicGenerator()
+try:
+    squares_1_to_10 = square_gen.generate_squares(1, 10)  # Attempting to generate squares with end < start
+    print("Generated squares:", squares_1_to_10)
+    square_roots = square_gen.calculate_square_roots(squares_1_to_10)
+    print("Square roots:", square_roots)
+except RangeError as e:
+    print("Error:", e)
